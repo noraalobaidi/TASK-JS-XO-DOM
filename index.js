@@ -43,7 +43,10 @@ function clickButton(index) {
         letter = "O";
         checkX = checkWinner(X);
         if (checkX) {
-          winningAlert("Player1");
+          setTimeout(() => {
+            winningAlert("Player1");
+          }, 500);
+          //winningAlert("Player1");
         }
       } else {
         document.getElementById(index).style.color = "red";
@@ -51,7 +54,20 @@ function clickButton(index) {
         letter = "X";
         checkO = checkWinner(O);
         if (checkO) {
-          winningAlert("Player2");
+          setTimeout(() => {
+            winningAlert("Player2");
+          }, 500);
+          //winningAlert("Player2");
+        } else if (
+          count == 10 &&
+          checkWinner(X) == false &&
+          checkWinner(O) == false
+        ) {
+          setTimeout(() => {
+            alert(`Draw`);
+          }, 2000);
+          // alert(`Draw`);
+          restartGame();
         }
       }
     }
@@ -59,8 +75,14 @@ function clickButton(index) {
     //   alert(`this button is clicked `);
     // }
     if (count == 10 && checkWinner(X) == false && checkWinner(O) == false) {
-      alert(`Draw`);
-      restartGame();
+      setTimeout(() => {
+        alert(`Draw`);
+      }, 500);
+      // alert(`Draw`);
+      setTimeout(() => {
+        restartGame();
+      }, 500);
+      // restartGame();
     }
   }
 }
