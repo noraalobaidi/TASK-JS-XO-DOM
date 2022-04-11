@@ -22,7 +22,10 @@ body {
   display: flex;
   flex-direction: row;
 }
-
+@keyframes changeColor {
+  from {color: #e3e3e3;}
+  
+}
 .xobutton {
   display: flex;
   justify-content: center;
@@ -37,6 +40,9 @@ body {
   /* align-items: center; */
   /* align-items: ; */
   margin: 10px;
+  animation-name: changeColor;
+  animation-duration:3s;
+  animation-iteration-count: infinite;
 
   font-family: "Permanent Marker", cursive;
 }
