@@ -31,7 +31,7 @@ let O = [];
 let checkX = false;
 let checkO = false;
 function clickButton(index) {
-  if (count < 9) {
+  if (count <= 9) {
     if (buttons.indexOf(index) == -1) {
       //to prevent cliking the same button
       buttons.push(index);
@@ -54,12 +54,14 @@ function clickButton(index) {
           winningAlert("Player2");
         }
       }
-    } else {
-      alert(`this button is clicked `);
     }
-  } else if (count == 9 && !checkWinner(X) && !checkWinner(O)) {
-    alert(`Draw`);
-    restartGame();
+    // else {
+    //   alert(`this button is clicked `);
+    // }
+    if (count == 10 && checkWinner(X) == false && checkWinner(O) == false) {
+      alert(`Draw`);
+      restartGame();
+    }
   }
 }
 
@@ -68,7 +70,7 @@ function clickButton(index) {
  */
 // function checkWinner
 function checkWinner(player) {
-  let result = false;
+  //let result = false;
   let isSubset = (playerArray, winningArray) =>
     winningArray.every((num) => playerArray.includes(num));
   if (player.length >= 3) {
